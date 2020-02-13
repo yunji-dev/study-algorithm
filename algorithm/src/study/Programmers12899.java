@@ -1,4 +1,4 @@
-package algorithm.study;
+package study;
 
 /*
 문제 설명
@@ -24,7 +24,7 @@ n	result
 2	2
 3	4
 4	11
-
+ 
  */
 
 
