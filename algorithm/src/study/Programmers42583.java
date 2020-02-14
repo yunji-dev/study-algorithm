@@ -37,36 +37,34 @@ bridge_length	weight	truck_weights	return
 // 다리를 지나는 트럭.....
 public class Programmers42583 {
 
-	class Solution {
-		public int solution(int bridge_length, int weight, int[] truck_weights) {
-			int max = 0;
-			int truck = 0;
-			int time = 0;
+	public int solution(int bridge_length, int weight, int[] truck_weights) {
+		int max = 0;
+		int truck = 0;
+		int time = 0;
 
-			Queue<Integer> que = new LinkedList<Integer>();
-			for (int i = 0; i < bridge_length; i++) {
-				que.add(0);
-			}
-			while (true) {
-				if (!que.peek().equals(0)) {
-					max -= que.peek();
-				}
-				if (truck < truck_weights.length) {
-					if (max + truck_weights[truck] <= weight) {
-						que.add(truck_weights[truck]);
-						max += truck_weights[truck];
-						truck++;
-					} else {
-						que.add(0);
-					}
-				}
-				que.poll();
-				time++;
-				if (que.size() == 0) {
-					break;
-				}
-			}
-			return time;
+		Queue<Integer> que = new LinkedList<Integer>();
+		for (int i = 0; i < bridge_length; i++) {
+			que.add(0);
 		}
+		while (true) {
+			if (!que.peek().equals(0)) {
+				max -= que.peek();
+			}
+			if (truck < truck_weights.length) {
+				if (max + truck_weights[truck] <= weight) {
+					que.add(truck_weights[truck]);
+					max += truck_weights[truck];
+					truck++;
+				} else {
+					que.add(0);
+				}
+			}
+			que.poll();
+			time++;
+			if (que.size() == 0) {
+				break;
+			}
+		}
+		return time;
 	}
 }
